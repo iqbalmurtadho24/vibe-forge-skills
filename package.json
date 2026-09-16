@@ -1,0 +1,30 @@
+{
+  "name": "vibe-forge",
+  "version": "3.5.0",
+  "description": "Universal Autonomous Engineering & Skill Orchestration Ecosystem for AI Coding Agents",
+  "main": "skills/vibe-forge/SKILL.md",
+  "keywords": [
+    "ai-agent",
+    "agent-skills",
+    "antigravity",
+    "claude-code",
+    "cursor",
+    "superpowers",
+    "vibe-forge",
+    "code-graph",
+    "agentdb",
+    "swarm",
+    "tdd",
+    "security"
+  ],
+  "author": "Iqbal Murtadho",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iqbalmurtadho24/vibe-forge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iqbalmurtadho24/vibe-forge/issues"
+  },
+  "homepage": "https://github.com/iqbalmurtadho24/vibe-forge#readme"
+}
