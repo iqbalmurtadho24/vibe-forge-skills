@@ -48,6 +48,7 @@ When multiple skills apply, process skills come first — they set the approach,
 - "Let's build X" → superpowers:brainstorming first, then implementation skills.
 - "Fix this bug" → superpowers:systematic-debugging first, then domain skills.
 - "Understand the codebase" → codebase-memory:scout/auditor/default, with code graph queries.
+- "Verify in browser / test UI" → browser-testing-with-devtools (Chrome DevTools MCP).
 
 ## Tool Integration (Automatic)
 
@@ -58,12 +59,43 @@ These tools are now **built into the superpowers framework**:
 | **codebase-memory-scout** | Code exploration | Quick code element lookup |
 | **codebase-memory** | Architecture questions | Full analysis & tracing |
 | **codebase-memory-auditor** | Code quality audit | Bounded-scope review |
+| **chrome-devtools** | Web / frontend testing & debugging | Real-time DOM, console, network, performance profiling & Lighthouse |
 | **headroom** | All responses | 60-95% token compression (auto) |
 | **stop-slop** | Writing cleanup | Remove AI tells from prose |
 | **claude-mem** | Persistent memory | Memory compression & management |
 | **MCP Graph Tools** | Always ready | Search, trace, impact analysis, dead code |
 
 When you ask anything code-related, these tools activate automatically.
+
+## Chrome DevTools MCP Auto-Integration
+
+**Chrome DevTools MCP is automatically enabled** when this skill activates (based on official [Chrome DevTools for Agents](https://developer.chrome.com/blog/chrome-devtools-mcp?hl=id)). This bridges the gap between static code and runtime browser execution:
+- 🌐 **Real-Time Web Verification** — Automatically verify code changes in Chrome with live DOM & computed styles
+- 🐞 **Console & Network Diagnostics** — Inspect live console errors, network requests, HTTP status, and CORS failures
+- ⚡ **Performance & Core Web Vitals** — Record performance traces, analyze LCP / CLS / INP, and run Lighthouse audits
+- 🤖 **Interactive Browser Automation** — Simulate user input, clicks, form submissions, and dialog handling
+- 🧩 **Memory Leak Detection** — Capture heap snapshots and analyze memory leaks
+- 🔌 **Discovery API & Framework Support** — Inspect React, Angular, Vue, and WebMCP components via `devtoolstooldiscovery`
+
+**Auto-activate for:**
+- Web and frontend development tasks
+- UI / visual bug debugging and layout inspection
+- Console error and network failure diagnosis
+- Performance audits and Core Web Vitals optimization
+- Browser testing with the `browser-testing-with-devtools` skill
+
+**Configuration:**
+```json
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx.cmd",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    }
+  }
+}
+```
+*(On Windows, `npx.cmd` is used; `npm install -g chrome-devtools-mcp` is also supported for instant execution).*
 
 ## Quality Improvement Skills
 
@@ -210,6 +242,7 @@ When activated, using-superpowers analyzes your request for these patterns:
 | "test", "tdd", "testing", "unit" | Testing | test-driven-development, browser-testing-with-devtools |
 | "debug", "error", "fix", "bug" | Debugging | debugging-and-error-recovery, code-simplification |
 | "frontend", "ui", "css", "react" | Frontend | frontend-ui-engineering |
+| "chrome", "devtools", "browser", "dom", "lighthouse", "lcp" | Browser DevTools | browser-testing-with-devtools |
 | "git", "commit", "branch", "merge" | Git Workflow | git-workflow-and-versioning |
 | "security", "hardening", "protect" | Security | security-and-hardening |
 | "plan", "breakdown", "task" | Planning | planning-and-task-breakdown |

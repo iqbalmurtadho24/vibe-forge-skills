@@ -6,6 +6,7 @@ Skills speak in actions ("dispatch a subagent", "create a todo", "read a file").
 |----------------------|----------------------|
 | Dispatch a subagent (`Subagent (general-purpose):` template) | `invoke_subagent` with a built-in `TypeName` — `self` for full-capability work, `research` for read-only |
 | Task tracking ("create a todo", "mark complete") | a **task artifact** — `write_to_file` with `IsArtifact: true` and `ArtifactType: "task"` (see [Task tracking](#task-tracking)). **Not** `manage_task`, which manages background processes. |
+| Browser testing & DevTools inspection | `call_mcp_tool` with `ServerName: "chrome-devtools"` (e.g. `take_screenshot`, `list_console_messages`, `list_network_requests`, `lighthouse_audit`, `navigate_page`) |
 
 ## Task tracking
 

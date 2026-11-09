@@ -50,6 +50,7 @@ When multiple skills apply, process skills come first — they set the approach,
 - "Let's build X" → vibe-forge:brainstorming first, then implementation skills.
 - "Fix this bug" → vibe-forge:systematic-debugging first, then domain skills.
 - "Understand the codebase" → codebase-memory:scout/auditor/default, with code graph queries.
+- "Verify in browser / UI test" → browser-testing-with-devtools (Chrome DevTools MCP).
 
 ## Tool Integration (Automatic)
 
@@ -60,10 +61,20 @@ These tools are built into the Vibe Forge ecosystem:
 | **codebase-memory-scout** | Code exploration | Quick code element lookup |
 | **codebase-memory** | Architecture questions | Full analysis & tracing |
 | **codebase-memory-auditor** | Code quality audit | Bounded-scope review |
+| **chrome-devtools** | Web / frontend testing & debugging | Real-time DOM, console, network, performance profiling & Lighthouse |
 | **headroom** | All responses | 60-95% token compression (auto) |
 | **stop-slop** | Writing cleanup | Remove AI tells from prose |
 | **claude-mem** | Persistent memory | Memory compression & management |
 | **MCP Graph Tools** | Always ready | Search, trace, impact analysis, dead code |
+
+## Chrome DevTools MCP Auto-Integration
+
+**Chrome DevTools MCP is automatically enabled** across the ecosystem ([Chrome DevTools for Agents](https://developer.chrome.com/blog/chrome-devtools-mcp?hl=id)):
+- 🌐 **Real-Time Verification** — DOM, CSS styles, and UI validation directly in live Chrome
+- 🐞 **Console & Network Diagnostics** — Inspect network calls, CORS errors, and console traces
+- ⚡ **Performance & Core Web Vitals** — Trace recording, LCP / CLS analysis, and Lighthouse audits
+- 🤖 **Interactive Browser Automation** — User interaction simulation, form filling, screenshots
+- 🔌 **Discovery API & Framework Support** — React, Angular, Vue, and WebMCP integration via `devtoolstooldiscovery`
 
 ## Quality & Optimization Suites
 
@@ -152,6 +163,7 @@ Activates the master Vibe Forge router, runs task discovery, and dispatches the 
 | "Architecture / DDD" | `v3-ddd-architecture`, `v3-core-implementation` |
 | "Security / Pentest" | `security-and-hardening`, `penetration-testing-with-strix` |
 | "UI design / Tailwind / CSS" | `ui-ux-pro-max`, `frontend-ui-engineering`, `ui-styling` |
+| "Browser test / Chrome DevTools" | `browser-testing-with-devtools` |
 | "Plan feature / Roadmap" | `writing-plans`, `planning-and-task-breakdown` |
 
 ---
